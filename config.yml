@@ -1,0 +1,13 @@
+language: "ko"
+pipeline:
+  - name: SpacyNLP
+    model: "ko_core_news_md"
+  - name: SpacyTokenizer
+  - name: SpacyFeaturizer
+  - name: LexicalSyntacticFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    entity_recognition: False
+    epochs: 300
